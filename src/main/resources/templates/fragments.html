@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"  >
+<body>
+    <head th:fragment="home-screen-head">
+        <meta charset="UTF-8">
+        <title>Algebra hotel</title>
+        <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/hotel.png}"/>
+        <link th:href="@{/css/style.css}" rel="stylesheet">
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+
+    <head th:fragment="room-type-head">
+        <meta charset="UTF-8">
+        <title>Room type</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet">
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+
+    <nav th:fragment="header-navigation" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Algebra hotel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/room-type/list}">Rooms</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link login-link" th:href="@{/login}">Login</a>
+                </li>
+                <div sec:authorize="isAuthenticated()" >
+                    <form method="post" th:action="@{/logout}">
+                        <div class="login-link" style="padding: 1%">
+                            You are logged in as <span sec:authentication="name"></span>
+                            <input type="submit" value="Logout" class="btn btn-danger">
+                        </div>
+                    </form>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <div th:fragment="js">
+        <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </div>
+</body>
+</html>

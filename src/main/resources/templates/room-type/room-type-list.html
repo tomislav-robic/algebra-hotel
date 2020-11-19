@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+<head th:replace="fragments :: room-type-head"></head>
+<body>
+<div>
+    <nav th:replace="fragments :: header-navigation"> </nav>
+    <div style="margin: 5%">
+        <h1 style="margin-bottom: 4%">Room type</h1>
+        <a style="margin: 3%" sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/room-type/new}">New Room Type</a>
+        <table class="table">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Number of beds</th>
+                <th scope="col">Price</th>
+                <th scope="col">Short description</th>
+            </tr>
+            <tr th:each="roomType : ${roomTypes}">
+                <td><span th:text="${roomType.name}"> Title </span></td>
+                <td><span th:text="${roomType.numberOfBeds}"> Title </span></td>
+                <td><span th:text="${roomType.price}"> Title </span></td>
+                <td><span th:text="${roomType.shortDescription}"> Title </span></td>
+            </tr>
+        </table>
+    </div>
+
+
+</div>
+</body>
+</html>

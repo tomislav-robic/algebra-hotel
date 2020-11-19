@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+<head th:replace="fragments :: room-type-head"></head>
+<body>
+<div>
+    <nav th:replace="fragments :: header-navigation"> </nav>
+    <div style="margin: 5%">
+        <h1 class="error" style="margin-bottom: 4%">Only Admin can access this page!</h1>
+    </div>
+
+
+</div>
+</body>
+</html>
