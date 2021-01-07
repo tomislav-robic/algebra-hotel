@@ -7,8 +7,7 @@
     <nav th:replace="fragments :: header-navigation"> </nav>
     <div style="margin: 5%">
         <h1 style="margin-bottom: 4%">Room type</h1>
-        <a style="margin: 3%" sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/room-type/new}">New Room Type</a>
-        <a style="margin: 3%" class="btn btn-info" th:href="@{/room-type/search}">Search by price</a>
+        <h3 style="margin: 3%">Price from <span th:text="${roomTypeSearch.priceFrom}" th:remove="tag"></span> to <span th:text="${roomTypeSearch.priceTo}" th:remove="tag"></span> </h3>
         <table class="table">
             <tr>
                 <th scope="col">Name</th>
