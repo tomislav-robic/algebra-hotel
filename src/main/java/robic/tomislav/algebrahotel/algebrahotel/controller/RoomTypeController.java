@@ -8,13 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import robic.tomislav.algebrahotel.algebrahotel.domain.RoomType;
 import robic.tomislav.algebrahotel.algebrahotel.domain.RoomTypeSearch;
-import robic.tomislav.algebrahotel.algebrahotel.repository.JpaRoomTypeRepository;
-import robic.tomislav.algebrahotel.algebrahotel.repository.RoomTypeRepository;
 import robic.tomislav.algebrahotel.algebrahotel.service.RoomTypeService;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Controller
