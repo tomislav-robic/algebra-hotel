@@ -7,25 +7,24 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "room_type")
 public class RoomType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "You haven''t entered a name")
-    @Size(min = 2, max = 50, message = "The name should be between 2 and 50 characters long")
+    @NotEmpty(message = "{validation.room-type.name.notEmpty}")
+    @Size(min = 2, max = 50, message = "{validation.room-type.name.size}")
     private String name;
 
-    @Min(value = 1, message = "Number of beds must be above 0")
+    @Min(value = 1, message = "{validation.room-type.number-of-beds.min}")
     private int numberOfBeds;
 
-    @Min(value = 1, message = "Price must be above 0")
+    @Min(value = 1, message = "{validation.room-type.price.min}")
     private float price;
 
-    @NotEmpty(message = "You haven''t entered a short description")
-    @Size(min = 5, max = 500, message = "The short description should be between 5 and 500 characters long")
+    @NotEmpty(message = "{validation.room-type.short-description.notEmpty}")
+    @Size(min = 5, max = 500, message = "{validation.room-type.short-description.size}")
     private String shortDescription;
 
     public RoomType(Long id, @NotEmpty(message = "You haven''t entered a name") @Size(min = 2, max = 50, message = "The name should be between 2 and 50 characters long") String name, @Min(value = 1, message = "Number of beds must be above 0") int numberOfBeds, @Min(value = 1, message = "Price must be above 0") float price, @NotEmpty(message = "You haven''t entered a short description") @Size(min = 5, max = 500, message = "The short description should be between 5 and 500 characters long") String shortDescription) {

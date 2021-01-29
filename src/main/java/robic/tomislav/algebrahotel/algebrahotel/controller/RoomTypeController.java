@@ -37,7 +37,7 @@ public class RoomTypeController {
         return "room-type/room-type-form";
     }
 
-    @PostMapping("created")
+    @PostMapping("new")
     public String roomCreated(@Valid RoomType roomType, Errors errors){
         if(errors.hasErrors()) {
             return "room-type/room-type-form";
@@ -54,10 +54,10 @@ public class RoomTypeController {
         return "room-type/room-type-search";
     }
 
-    @PostMapping("search-result")
+    @PostMapping("search")
     public String roomSearchResult(@Valid RoomTypeSearch roomTypeSearch, Errors errors, Model model){
         if(errors.hasErrors()) {
-            return "room-type/room-type-form";
+            return "room-type/room-type-search";
         }
 
         List<RoomType> roomTypes = new ArrayList<RoomType>(roomTypeService.findByEnteredQueryData(roomTypeSearch));

@@ -2,32 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head th:replace="fragments :: room-type-head"></head>
 <body>
-<div>
-    <nav th:replace="fragments :: header-navigation"> </nav>
-    <h3 style="margin-top:5%; margin-left: 6% ">Login</h3>
-    <div th:if="${param.error}" class="login-error">Unable to login. Check your username and password.</div>
-    <div th:if="${param.logout}" class="login-success">You have successfully logged out.</div>
-    <form method="post" style="margin: 5%" th:action="@{/login}">
-        <div class="form-group row" >
-            <label for="username" class="col-sm-2 col-form-label">Username: </label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="username" name="username" >
+    <div>
+        <nav th:replace="fragments :: header-navigation"> </nav>
+        <h3 style="margin-top:5%; margin-left: 6% " th:text="#{msg.login}"></h3>
+        <div th:if="${param.error}" class="login-error">Unable to login. Check your username and password.</div>
+        <div th:if="${param.logout}" class="login-success">You have successfully logged out.</div>
+        <form method="post" style="margin: 5%" th:action="@{/login}">
+            <div class="form-group row" >
+                <label for="username" class="col-sm-2 col-form-label" th:text="#{msg.username}"></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="username" name="username" >
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="password" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-5">
-                <input type="password" class="form-control" name="password" id="password" >
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 col-form-label" th:text="#{msg.password}"></label>
+                <div class="col-sm-5">
+                    <input type="password" class="form-control" name="password" id="password" >
+                </div>
             </div>
-        </div>
-        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-        <div class="form-group row">
-            <div class="col-sm-5">
-                <input type="submit" class="btn btn-primary" value="Login">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <input type="submit" class="btn btn-primary" th:value="#{msg.login}">
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-</div>
+    </div>
+    <div th:replace="fragments :: js"></div>
 </body>
 </html>

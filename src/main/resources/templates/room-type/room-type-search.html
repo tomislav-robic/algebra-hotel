@@ -2,42 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head th:replace="fragments :: room-type-head"></head>
 <body>
-<div>
-    <nav th:replace="fragments :: header-navigation"> </nav>
-    <h1 style="margin-top:5%; margin-left: 6% ">Room type</h1>
-    <h3 style="margin-top:5%; margin-left: 6% ">Search by price</h3>
-    <form method="post" style="margin: 5%" th:object="${roomTypeSearch}" th:action="@{/room-type/search-result}"  >
-        <div class="form-group row" >
-            <label for="priceFrom" class="col-sm-2 col-form-label">Price from</label>
-            <div class="col-sm-5">
-                <input type="number" step="0.01" class="form-control" id="priceFrom" placeholder="Name" th:field="*{priceFrom}">
-                <span class="validation-error"
-                      th:if="${#fields.hasErrors('priceFrom')}"
-                      th:errors="*{priceFrom}"
-                >
-                </span>
+    <div>
+        <nav th:replace="fragments :: header-navigation"> </nav>
+        <h1 style="margin-top:5%; margin-left: 6% " th:text="#{msg.roomType}"></h1>
+        <h3 style="margin-top:5%; margin-left: 6% " th:text="#{msg.search}"></h3>
+        <form method="post" style="margin: 5%" th:object="${roomTypeSearch}" th:action="@{/room-type/search}"  >
+            <div class="form-group row" >
+                <label for="priceFrom" class="col-sm-2 col-form-label" th:text="#{msg.pricefrom}"></label>
+                <div class="col-sm-5">
+                    <input type="number" step="0.01" class="form-control" id="priceFrom" placeholder="Name" th:field="*{priceFrom}">
+                    <span class="validation-error"
+                          th:if="${#fields.hasErrors('priceFrom')}"
+                          th:errors="*{priceFrom}"
+                    >
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="priceTo" class="col-sm-2 col-form-label">Price to</label>
-            <div class="col-sm-5">
-                <input type="number" step="0.01" class="form-control" id="priceTo" th:field="*{priceTo}">
-                <span class="validation-error"
-                      th:if="${#fields.hasErrors('priceTo')}"
-                      th:errors="*{priceTo}"
-                >
-                </span>
+            <div class="form-group row">
+                <label for="priceTo" class="col-sm-2 col-form-label" th:text="#{msg.priceto}"></label>
+                <div class="col-sm-5">
+                    <input type="number" step="0.01" class="form-control" id="priceTo" th:field="*{priceTo}">
+                    <span class="validation-error"
+                          th:if="${#fields.hasErrors('priceTo')}"
+                          th:errors="*{priceTo}"
+                    >
+                    </span>
+                </div>
             </div>
-        </div>
 
-        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-        <div class="form-group row">
-            <div class="col-sm-5">
-                <input type="submit" class="btn btn-primary" value="Enter">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <input type="submit" class="btn btn-primary" value="Enter">
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-</div>
+    </div>
+    <div th:replace="fragments :: js"></div>
 </body>
 </html>

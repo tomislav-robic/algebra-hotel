@@ -3,22 +3,23 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 <head th:replace="fragments :: room-type-head"></head>
 <body>
-<div>
-    <nav th:replace="fragments :: header-navigation"> </nav>
-    <div style="margin: 5%">
-        <h1 style="margin-bottom: 4%">You created Room type :</h1>
-            <br col-sm-7>
-                Name :  <span th:text="${roomType.name}"></span></br>
-                Number of beds :  <span th:text="${roomType.numberOfBeds}"></span></br>
-                Price :  <span th:text="${roomType.price}"></span></br>
-                Short description :  <span th:text="${roomType.shortDescription}"></span>
-            </div>
+    <div>
+        <nav th:replace="fragments :: header-navigation"> </nav>
+        <div style="margin: 5%">
+            <h1 style="margin-bottom: 4%">You created Room type :</h1>
+                <br col-sm-7>
+                    Name :  <span th:text="${roomType.name}"></span></br>
+                    Number of beds :  <span th:text="${roomType.numberOfBeds}"></span></br>
+                    Price :  <span th:text="${roomType.price}"></span></br>
+                    Short description :  <span th:text="${roomType.shortDescription}"></span>
+                </div>
 
-        <a style="margin: 3%" sec:authorize="hasRole('ADMIN')" class="col-sm-4 btn btn-primary" th:href="@{/room-type/new}">Add new</a>
+            <a style="margin: 3%" sec:authorize="hasRole('ADMIN')" class="col-sm-4 btn btn-primary" th:href="@{/room-type/new}">Add new</a>
+
+        </div>
+
 
     </div>
-
-
-</div>
+    <div th:replace="fragments :: js"></div>
 </body>
 </html>
